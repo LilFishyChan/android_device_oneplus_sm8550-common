@@ -28,8 +28,11 @@ PRODUCT_PACKAGES += \
 
 # Alert slider
 PRODUCT_PACKAGES += \
-    KeyHandler \
     tri-state-key-calibrate
+
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # Audio
 PRODUCT_PACKAGES += \
