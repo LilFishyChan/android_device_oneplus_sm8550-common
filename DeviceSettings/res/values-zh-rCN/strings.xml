@@ -23,14 +23,14 @@
     <!-- Notification slider -->
     <string name="notification_slider_category_title">三段式开关</string>
     <string name="notification_slider_title">三段式开关设置</string>
-    <string name="notification_slider_selection_dialog_title">动作</string>
+    <string name="notification_slider_selection_dialog_title">操作</string>
     <string name="notification_slider_top_position">上方位置</string>
     <string name="notification_slider_middle_position">中间位置</string>
     <string name="notification_slider_bottom_position">下方位置</string>
     <string name="notification_slider_mode_total_silence">完全静音</string>
     <string name="notification_slider_mode_alarms_only">仅允许闹钟</string>
     <string name="notification_slider_mode_priority_only">仅允许优先事项</string>
-    <string name="notification_slider_mode_none">无</string>
+    <string name="notification_slider_mode_none">不进行修改</string>
 
     <string name="notification_slider_usage_title">滑块用途</string>
     <string name="notification_slider_for_notification">通知</string>
@@ -60,7 +60,7 @@
     <!-- USB 2.0 Force FastCharge -->
     <string name="usb_title">USB</string> 
     <string name="usb2_fc_title">快速充电</string>
-    <string name="usb2_fc_summary">在 USB 2.0 模式下强制开启高达 900mA 的快速充电</string>
+    <string name="usb2_fc_summary">在 USB 2.0 模式下强制开启 900mA 的快速充电</string>
 
     <!-- Touchpanel -->
     <string name="touchpanel_title">触摸屏</string>

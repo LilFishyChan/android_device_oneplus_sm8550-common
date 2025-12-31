@@ -1,0 +1,2 @@
+type proc_touchpanel, fs_type, proc_type;
+type sysfs_fast_charge, fs_type, sysfs_type;

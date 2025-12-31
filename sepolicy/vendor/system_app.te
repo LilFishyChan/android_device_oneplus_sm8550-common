@@ -1,0 +1,14 @@
+allow system_app proc_touchpanel:dir search;
+allow system_app proc_touchpanel:file rw_file_perms;
+
+allow system_app sysfs_fast_charge:file rw_file_perms;
+
+# Allow system_app to search for touchpanel and fast charge nodes
+allow system_app vendor_proc_display:dir search;
+allow system_app vendor_sysfs_usb_supply:dir search;
+
+# Allow system_app to write to vendor_proc_display files (for game_switch_enable and oplus_tp_direction)
+allow system_app vendor_proc_display:file rw_file_perms;
+
+# Allow system_app to write to vendor_sysfs_usb_supply files (for fast_charge)
+allow system_app vendor_sysfs_usb_supply:file rw_file_perms;

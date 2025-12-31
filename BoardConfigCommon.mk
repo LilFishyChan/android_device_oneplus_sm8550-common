@@ -6,6 +6,9 @@
 
 COMMON_PATH := device/oneplus/sm8550-common
 
+# SEPolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+
 # A/B
 AB_OTA_UPDATER := true
 

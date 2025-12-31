@@ -52,7 +52,7 @@ public class DeviceSettings extends SettingsBasePreferenceFragment
 
     private static final String KEY_USB2_SWITCH = "usb2_fast_charge";
 
-    private static final String FILE_FAST_CHARGE = "/sys/module/oplus_chg/parameters/force_fast_charge";
+    private static final String FILE_FAST_CHARGE = "/sys/devices/virtual/oplus_chg/battery/fast_charge";
 
     private ListPreference mTopKeyPref;
     private ListPreference mMiddleKeyPref;

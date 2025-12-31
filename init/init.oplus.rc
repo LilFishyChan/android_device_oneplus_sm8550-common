@@ -14,6 +14,14 @@ on boot
     # Display
     chmod 0000 /sys/kernel/oplus_display/hbm
 
+    # Touchpanel
+    chown system system /proc/touchpanel/game_switch_enable
+    chown system system /proc/touchpanel/oplus_tp_direction
+
+    # Charging
+    chown system system /sys/devices/virtual/oplus_chg/battery/fast_charge
+    chmod 0660 /sys/devices/virtual/oplus_chg/battery/fast_charge
+
 on post-fs-data
     # ADSP ramdump
     mkdir /data/vendor/mmdump 0777 system system
@@ -28,6 +36,8 @@ on property:ro.boot.prjname=*
 on property:sys.boot_completed=1
     # Charging
     chown system system /dev/oplus_chg
+    chown system system /sys/devices/virtual/oplus_chg/battery/fast_charge
+    chmod 0660 /sys/devices/virtual/oplus_chg/battery/fast_charge
 
     # Widevine
     copy /vendor/etc/oplus_Widevine_licenses.pfm /mnt/vendor/persist/data/pfm/licenses/oplus_Widevine_licenses.pfm
