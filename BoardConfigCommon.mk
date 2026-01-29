@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021-2025 The LineageOS Project
+# Copyright (C) 2021-2026 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -138,7 +138,8 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/wlan/platform \
     qcom/opensource/wlan/qcacld-3.0/.kiwi_v2 \
     qcom/opensource/bt-kernel \
-    nxp/opensource/driver
+    nxp/opensource/driver \
+    oplus/kernel/explorer
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -185,7 +186,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
-BOOT_SECURITY_PATCH := 2025-10-01
+BOOT_SECURITY_PATCH := 2025-12-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy

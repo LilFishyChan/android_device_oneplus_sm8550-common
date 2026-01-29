@@ -22,9 +22,16 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_odm=true \
+    POSTINSTALL_PATH_odm=bin/xbl_config_arb_check \
+    FILESYSTEM_TYPE_odm=erofs \
+    POSTINSTALL_OPTIONAL_odm=false
+
 PRODUCT_PACKAGES += \
     checkpoint_gc \
-    otapreopt_script
+    otapreopt_script \
+    xbl_config_arb_check
 
 # Alert slider
 PRODUCT_PACKAGES += \
@@ -124,7 +131,8 @@ PRODUCT_COPY_FILES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    OplusDoze
+    OplusDoze \
+    OplusDozeResCommon
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -279,13 +287,15 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    liboplus-uah-client
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/kalama/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # QSPA
 PRODUCT_PACKAGES += \
+    qspa_vendor.rc \
     vendor.qti.qspa-service
 
 # QTI fwk-detect
