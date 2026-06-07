@@ -19,17 +19,14 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/oneplus/sm8550-common',
+    'hardware/oplus',
+    'hardware/pixelworks/interfaces',
     'hardware/qcom-caf/sm8550',
     'hardware/qcom-caf/wlan',
-    'hardware/oplus',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
 ]
-
-
-def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}_{partition}' if partition == 'odm' else None
 
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
@@ -39,21 +36,14 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'libpwirisfeature',
-        'libpwirishalwrapper',
-    ): lib_fixup_odm_suffix,
-    (
         'com.qualcomm.qti.dpm.api@1.0',
         'libQnnCpu',
         'libQnnHtp',
         'libQnnHtpPrepare',
         'libQnnHtpV73Stub',
+        'libpwirisfeature',
+        'libpwirishalwrapper',
         'vendor.oplus.hardware.communicationcenter-V2-ndk',
-        'vendor.pixelworks.hardware.display@1.0',
-        'vendor.pixelworks.hardware.display@1.1',
-        'vendor.pixelworks.hardware.display@1.2',
-        'vendor.pixelworks.hardware.feature@1.0',
-        'vendor.pixelworks.hardware.feature@1.1',
         'vendor.qti.diaghal@1.0',
         'vendor.qti.hardware.dpmservice@1.0',
         'vendor.qti.hardware.qccsyshal@1.0',
@@ -84,7 +74,7 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
         .add_needed('libshims_aidl_fingerprint_v2.oplus.so'),
-    'odm/bin/hw/vendor.oplus.hardware.charger-V9-service': blob_fixup()
+    'odm/bin/hw/vendor.oplus.hardware.charger-V10-service': blob_fixup()
         .add_needed('libbase_shim.so'),
     'odm/etc/init/init.network.rc': blob_fixup()
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
