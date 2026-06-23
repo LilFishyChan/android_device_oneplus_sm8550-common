@@ -1,2 +1,3 @@
 # Allow Bluetooth HAL to access ssrdump directory
-allow hal_bluetooth_default vendor_ramdump_vendor_data_file:dir search;
+allow hal_bluetooth_default vendor_ramdump_vendor_data_file:dir { search add_name write };
+allow hal_bluetooth_default vendor_ramdump_vendor_data_file:file { create write open };
