@@ -63,11 +63,7 @@
 
         <service
             android:name=".KeyHandler"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.internal.os.DeviceKeyHandler" />
-            </intent-filter>
-        </service>
+            android:exported="false" />
 
         <receiver android:name=".Startup"
             android:exported="false">
