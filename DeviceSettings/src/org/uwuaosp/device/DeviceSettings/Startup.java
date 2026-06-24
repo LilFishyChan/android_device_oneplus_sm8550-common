@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -28,7 +28,7 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
-        if ("lineageos.intent.action.INITIALIZE_LINEAGE_HARDWARE".equals(action)) {
+        if ("uwuaosp.intent.action.INITIALIZE_HARDWARE".equals(action)) {
             DeviceSettings.restoreSliderStates(context);
             DeviceSettings.restoreFastChargeSetting(context);
         }

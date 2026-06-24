@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +25,7 @@ import android.util.Log;
 import android.provider.Settings;
 import android.os.UserHandle;
 
-import org.lineageos.device.DeviceSettings.Constants;
+import org.uwuaosp.device.DeviceSettings.Constants;
 
 public abstract class SliderControllerBase {
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import java.io.File;
 import java.io.FileNotFoundException;

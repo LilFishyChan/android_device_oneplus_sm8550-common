@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings.slider;
+package org.uwuaosp.device.DeviceSettings.slider;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -24,8 +24,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseIntArray;
 
-import org.lineageos.device.DeviceSettings.Constants;
-import org.lineageos.device.DeviceSettings.SliderControllerBase;
+import org.uwuaosp.device.DeviceSettings.Constants;
+import org.uwuaosp.device.DeviceSettings.SliderControllerBase;
 
 public final class NotificationController extends SliderControllerBase {
 

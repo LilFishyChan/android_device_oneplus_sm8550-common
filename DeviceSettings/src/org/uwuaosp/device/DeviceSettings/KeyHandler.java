@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -38,14 +38,14 @@ import com.android.internal.os.DeviceKeyHandler;
 
 import java.util.Arrays;
 
-import org.lineageos.device.DeviceSettings.Constants;
-import org.lineageos.device.DeviceSettings.SliderControllerBase;
-import org.lineageos.device.DeviceSettings.slider.NotificationController;
-import org.lineageos.device.DeviceSettings.slider.FlashlightController;
-import org.lineageos.device.DeviceSettings.slider.BrightnessController;
-import org.lineageos.device.DeviceSettings.slider.RotationController;
-import org.lineageos.device.DeviceSettings.slider.RingerController;
-import org.lineageos.device.DeviceSettings.slider.NotificationRingerController;
+import org.uwuaosp.device.DeviceSettings.Constants;
+import org.uwuaosp.device.DeviceSettings.SliderControllerBase;
+import org.uwuaosp.device.DeviceSettings.slider.NotificationController;
+import org.uwuaosp.device.DeviceSettings.slider.FlashlightController;
+import org.uwuaosp.device.DeviceSettings.slider.BrightnessController;
+import org.uwuaosp.device.DeviceSettings.slider.RotationController;
+import org.uwuaosp.device.DeviceSettings.slider.RingerController;
+import org.uwuaosp.device.DeviceSettings.slider.NotificationRingerController;
 
 @Keep
 public class KeyHandler implements DeviceKeyHandler {

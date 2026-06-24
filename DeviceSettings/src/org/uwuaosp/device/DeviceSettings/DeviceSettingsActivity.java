@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import android.app.Activity;
 import android.app.AlertDialog;

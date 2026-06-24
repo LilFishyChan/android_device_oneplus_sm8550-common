@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings.slider;
+package org.uwuaosp.device.DeviceSettings.slider;
 
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
@@ -24,8 +24,8 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.util.Log;
 
-import org.lineageos.device.DeviceSettings.Constants;
-import org.lineageos.device.DeviceSettings.SliderControllerBase;
+import org.uwuaosp.device.DeviceSettings.Constants;
+import org.uwuaosp.device.DeviceSettings.SliderControllerBase;
 
 public final class FlashlightController extends SliderControllerBase {
 

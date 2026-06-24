@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.device.DeviceSettings;
+package org.uwuaosp.device.DeviceSettings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -37,7 +37,7 @@ import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 import java.util.Arrays;
 
-import org.lineageos.device.DeviceSettings.Constants;
+import org.uwuaosp.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends SettingsBasePreferenceFragment
         implements Preference.OnPreferenceChangeListener {
