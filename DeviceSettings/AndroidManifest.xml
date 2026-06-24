@@ -63,7 +63,6 @@
 
         <service
             android:name=".KeyHandler"
-            android:permission="KeyHandlerService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.internal.os.DeviceKeyHandler" />
