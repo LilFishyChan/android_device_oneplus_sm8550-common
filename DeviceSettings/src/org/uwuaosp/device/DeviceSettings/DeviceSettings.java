@@ -108,12 +108,17 @@ public class DeviceSettings extends SettingsBasePreferenceFragment
 
         ListPreference usagePref = (ListPreference) findPreference(
                 Constants.NOTIF_SLIDER_USAGE_KEY);
-        handleSliderUsageChange(usagePref.getValue());
+        String usageValue = usagePref.getValue();
+        if (usageValue != null) {
+            handleSliderUsageChange(usageValue);
+        }
     }
 
     private void registerPreferenceListener(String key) {
         Preference p = findPreference(key);
-        p.setOnPreferenceChangeListener(this);
+        if (p != null) {
+            p.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
