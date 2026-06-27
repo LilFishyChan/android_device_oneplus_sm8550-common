@@ -122,7 +122,19 @@ public class KeyHandler implements DeviceKeyHandler {
                 new IntentFilter(Constants.ACTION_UPDATE_SLIDER_SETTINGS));
 
         mInputManager = mContext.getSystemService(InputManager.class);
+
+        mTriStateObserver = new FileObserver(Constants.SLIDER_STATE, FileObserver.MODIFY) {
+            @Override
+            public void onEvent(int event, String path) {
+                if (mSliderController != null) {
+                    mSliderController.processEvent(mContext);
+                }
+            }
+        };
+        mTriStateObserver.startWatching();
     }
+
+    private FileObserver mTriStateObserver;
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_DOWN) {
