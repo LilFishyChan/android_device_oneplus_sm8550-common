@@ -22,6 +22,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.hardware.input.InputManager;
 import android.os.FileObserver;
 import android.os.RemoteException;
@@ -132,6 +135,76 @@ public class KeyHandler implements DeviceKeyHandler {
             }
         };
         mTriStateObserver.startWatching();
+
+        restoreSliderState();
+    }
+
+    private void restoreSliderState() {
+        try {
+            Context deviceContext = mContext.createPackageContext(
+                    "org.uwuaosp.device.DeviceSettings", Context.CONTEXT_IGNORE_SECURITY);
+            SharedPreferences prefs = deviceContext.getSharedPreferences(
+                    deviceContext.getPackageName() + "_preferences", Context.MODE_PRIVATE);
+            Resources res = deviceContext.getResources();
+
+            String usage = prefs.getString(Constants.NOTIF_SLIDER_USAGE_KEY,
+                    res.getString(R.string.config_defaultNotificationSliderUsage));
+
+            int usageInt = Integer.parseInt(usage);
+            int defaultsResId = getDefaultSliderActionsResId(usageInt);
+            if (defaultsResId == 0) return;
+
+            String[] defaults = res.getStringArray(defaultsResId);
+            int[] actions = new int[]{
+                Integer.parseInt(prefs.getString(
+                    Constants.NOTIF_SLIDER_ACTION_TOP_KEY, defaults[0])),
+                Integer.parseInt(prefs.getString(
+                    Constants.NOTIF_SLIDER_ACTION_MIDDLE_KEY, defaults[1])),
+                Integer.parseInt(prefs.getString(
+                    Constants.NOTIF_SLIDER_ACTION_BOTTOM_KEY, defaults[2]))
+            };
+
+            switch (usageInt) {
+                case NotificationController.ID:
+                    mSliderController = mNotificationController; break;
+                case FlashlightController.ID:
+                    mSliderController = mFlashlightController; break;
+                case BrightnessController.ID:
+                    mSliderController = mBrightnessController; break;
+                case RotationController.ID:
+                    mSliderController = mRotationController; break;
+                case RingerController.ID:
+                    mSliderController = mRingerController; break;
+                case NotificationRingerController.ID:
+                    mSliderController = mNotificationRingerController; break;
+            }
+
+            if (mSliderController != null) {
+                mSliderController.update(actions);
+                mSliderController.restoreState(mContext, false);
+            }
+        } catch (NameNotFoundException e) {
+            Log.w(TAG, "DeviceSettings package not found, slider state not restored", e);
+        }
+    }
+
+    private static int getDefaultSliderActionsResId(int usage) {
+        switch (usage) {
+            case NotificationController.ID:
+                return R.array.config_defaultSliderActionsForNotification;
+            case FlashlightController.ID:
+                return R.array.config_defaultSliderActionsForFlashlight;
+            case BrightnessController.ID:
+                return R.array.config_defaultSliderActionsForBrightness;
+            case RotationController.ID:
+                return R.array.config_defaultSliderActionsForRotation;
+            case RingerController.ID:
+                return R.array.config_defaultSliderActionsForRinger;
+            case NotificationRingerController.ID:
+                return R.array.config_defaultSliderActionsForNotificationRinger;
+            default:
+                return 0;
+        }
     }
 
     private FileObserver mTriStateObserver;
